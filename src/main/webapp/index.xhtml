@@ -1,13 +1,47 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <head>
-    <title>Hello World JSF Example</title>
+    <title>Qenel Home</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css"/>
 </head>
-<body>
-    #{HelloWorld.message}
-    <br /><br />
 
+<body bgcolor="white">
+
+<f:view>
+    <h3>Welcome to the home page for
+        <h:outputText value="#{PhoneRepo.repoName}"/>
+    </h3>
+    <hr/>
+
+    <h4>Phones in stock: </h4>
+
+    <h:dataTable value="#{PhoneRepo.inventory.entrySet().toArray()}"
+                 var="entry"
+                 styleClass = "myTable"
+                 headerClass = "myTableHeader"
+                 rowClasses = "myTableOddRow,myTableEvenRow">
+
+        <h:column>
+            <f:facet name = "header">Model</f:facet>
+            #{entry.key}
+        </h:column>
+        <h:column>
+            <f:facet name = "header">Price</f:facet>
+            $#{entry.value}</h:column>
+    </h:dataTable>
+
+    <hr/>
+
+    <h:graphicImage id="phoneImg" url="resources/images/phones_home.jpg" />
+    <br/>
+    <h:outputLink value="https://www.pexels.com/photo/black-android-smartphones-on-brown-wooden-surface-4387770/">
+        Image source
+    </h:outputLink>
+
+</f:view>
 </body>
 </html>

@@ -1,0 +1,22 @@
+.myTable {
+   border:1px solid #000000;
+}
+
+.myTableHeader {
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;
+   padding:1px;
+}
+
+.myTableOddRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFFF;
+   padding:1px;
+}
+
+.myTableEvenRow {
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+   padding:1px
+}
