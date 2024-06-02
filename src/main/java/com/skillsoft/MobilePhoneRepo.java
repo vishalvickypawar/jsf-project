@@ -1,6 +1,7 @@
 package com.skillsoft;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ public class MobilePhoneRepo implements Serializable{
     private String repoName = "Qenel Repo";
     private static Map<String, Double> inventory;
     private String selectedPhone = "";
+    private Date viewDate;
 
     static {
         inventory = new HashMap<String, Double>();
@@ -59,4 +61,15 @@ public class MobilePhoneRepo implements Serializable{
         this.selectedPhone = event.getNewValue().toString();
     }
 
+    public Date getViewDate() {
+        return viewDate;
+    }
+
+    public void setViewDate(Date viewDate) {
+        this.viewDate = viewDate;
+    }
+
+    public void updateViewDate(){
+        this.viewDate = new Date();
+    }
 }
