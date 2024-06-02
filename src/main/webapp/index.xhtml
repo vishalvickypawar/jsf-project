@@ -6,33 +6,23 @@
 
 <head>
     <title>Qenel Home</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/styles.css"/>
 </head>
 
-<body bgcolor="white">
-
+<body>
 <f:view>
     <h3>Welcome to the home page for
         <h:outputText value="#{PhoneRepo.repoName}"/>
     </h3>
-    <hr/>
-
-    <h4>Phones in stock: </h4>
-
-    <h:dataTable value="#{PhoneRepo.inventory.entrySet().toArray()}"
-                 var="entry"
-                 styleClass = "myTable"
-                 headerClass = "myTableHeader"
-                 rowClasses = "myTableOddRow,myTableEvenRow">
-
-        <h:column>
-            <f:facet name = "header">Model</f:facet>
-            #{entry.key}
-        </h:column>
-        <h:column>
-            <f:facet name = "header">Price</f:facet>
-            $#{entry.value}</h:column>
-    </h:dataTable>
+    <h:form>
+        <h3>What would you like to check out?</h3>
+        <hr/>
+        <h4>About Qenel</h4>
+        <h:commandButton value="About Us"
+                         action="about"></h:commandButton>
+        <h4>Phones for Sale</h4>
+        <h:commandButton value="View Phones"
+                         action="phones"></h:commandButton>
+    </h:form>
 
     <hr/>
 
