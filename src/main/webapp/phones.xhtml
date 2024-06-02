@@ -12,6 +12,7 @@
     <body bgcolor="white">
 
         <f:view>
+            <!--
             <h4>Phones in stock: </h4>
 
             <h:dataTable value="#{PhoneRepo.inventory.entrySet().toArray()}"
@@ -28,6 +29,23 @@
                     <f:facet name = "header">Price</f:facet>
                     $#{entry.value}</h:column>
             </h:dataTable>
+            -->
+            <h:form>
+                <h4>Pick a phone : </h4>
+
+                <div>
+                    <h:selectOneMenu value="#{PhoneRepo.selectedPhone}"
+                                     onchange="submit()"
+                                     valueChangeListener="#{PhoneRepo.selectedPhoneChanged}">
+                        <f:selectItems value="#{PhoneRepo.inventory}"/>
+                    </h:selectOneMenu>
+                </div>
+                <br/>
+                <div>
+                    <strong>Price of the selected phone : $</strong>
+                    <h:outputText value="#{PhoneRepo.selectedPhone}"/>
+                </div>
+            </h:form>
 
         </f:view>
     </body>

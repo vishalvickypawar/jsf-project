@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.event.ValueChangeEvent;
 import jakarta.inject.Named;
 
 @Named("PhoneRepo")
@@ -13,6 +14,7 @@ public class MobilePhoneRepo implements Serializable{
 
     private String repoName = "Qenel Repo";
     private static Map<String, Double> inventory;
+    private String selectedPhone = "";
 
     static {
         inventory = new HashMap<String, Double>();
@@ -39,6 +41,22 @@ public class MobilePhoneRepo implements Serializable{
 
     public void setInventory(Map<String, Double> inventoryMap) {
         inventory = inventoryMap;
+    }
+
+    public static void addPhone(String phoneName, double phonePrice){
+        inventory.put(phoneName, phonePrice);
+    }
+
+    public String getSelectedPhone() {
+        return selectedPhone;
+    }
+
+    public void setSelectedPhone(String selectedPhone) {
+        this.selectedPhone = selectedPhone;
+    }
+
+    public void selectedPhoneChanged(ValueChangeEvent event) {
+        this.selectedPhone = event.getNewValue().toString();
     }
 
 }
