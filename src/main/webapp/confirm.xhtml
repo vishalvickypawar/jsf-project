@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>Registration Confirmation</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h4>Registration data supplied: </h4>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.name}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.gender}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.dob}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marital Status:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.maritalStatus}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.address}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email Address:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.emailAddress}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile Number:</td>
+                    <td>
+                        <h:outputText value="#{CustomerBean.mobileNumber}" />
+                    </td>
+                </tr>
+
+            </table>
+            <p><h:commandButton value="Cancel" action="customer" />
+                <h:commandButton value="Confirm" action="#{CustomerBean.storeEmployeeInfo}" /></p>
+        </h:form>
+    </h:body>
+</html>

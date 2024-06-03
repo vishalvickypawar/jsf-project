@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+        <title>Registration</title>
+    </h:head>
+
+    <h:body>
+        <f:view>
+            <h:form>
+                <h2>Enter Data</h2>
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <h:inputText label="Name"
+                                         id="name" value="#{CustomerBean.name}"
+                                         required="true">
+                                <f:validateLength minimum="2" maximum="30" />
+                            </h:inputText>
+                            <h:message for="name" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <h:selectOneRadio label="Gender"
+                                              id="gender" value="#{CustomerBean.gender}" required="true">
+                                <f:selectItem itemLabel="Male" itemValue="male" />
+                                <f:selectItem itemLabel="Female" itemValue="female" />
+                                <f:selectItem itemLabel="Other" itemValue="other" />
+                            </h:selectOneRadio>
+                            <h:message for="gender" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td>
+                            <h:inputText label="Date of Birth"
+                                         id="dob" value="#{CustomerBean.dob}" required="true">
+                                <f:convertDateTime pattern="MM-dd-yy" />
+                            </h:inputText> (mm-dd-yy)
+                            <h:message for="dob" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Marital Status:</td>
+                        <td>
+                            <h:selectOneRadio label="Marital Status"
+                                              id="mstatus" value="#{CustomerBean.maritalStatus}"
+                                              required="true">
+                                <f:selectItem itemLabel="Single" itemValue="single" />
+                                <f:selectItem itemLabel="Married" itemValue="married" />
+                            </h:selectOneRadio>
+                            <h:message for="mstatus" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <h:inputText label="Address"
+                                         id="address" value="#{CustomerBean.address}"
+                                         required="true"/>
+                            <h:message for="address" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email Address:</td>
+                        <td>
+                            <h:inputText label="Email Address"
+                                         id="email" value="#{CustomerBean.emailAddress}"
+                                         required="true"
+                                         validator="#{CustomerBean.validateEmail}"/>
+                            <h:message for="email" style="color: red"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Mobile Number:</td>
+                        <td>
+                            <h:inputText label="Mobile Number"
+                                         id="mobileno" value="#{CustomerBean.mobileNumber}"
+                                         required="true">
+                                <f:validateLength minimum="10" maximum="20" />
+                            </h:inputText>
+                            <h:message for="mobileno" style="color: red"/>
+                        </td>
+                    </tr>
+
+                </table>
+                <p><h:commandButton value="Submit" action="confirm" /></p>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
