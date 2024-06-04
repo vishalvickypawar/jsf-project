@@ -40,6 +40,16 @@
                     <f:facet name="header">Memory (GB)</f:facet>
                     <h:outputText value="#{u.ram}"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <h:commandButton action = "#{PhoneBean.edit(u.id)}" value="Edit">
+                    </h:commandButton>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton action = "#{PhoneBean.delete(u.id)}" value="Delete">
+                    </h:commandButton>
+                </h:column>
             </h:dataTable>
         </center>
 
