@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Add Phone</title>
+</h:head>
+
+<h:body>
+    <f:view>
+        <h:form>
+            <h2>Enter Data</h2>
+            <table>
+                <tr>
+                    <td>Brand Name:</td>
+                    <td>
+                        <h:inputText label="BrandName"
+                                     id="brandname" value="#{PhoneBean.brandName}"
+                                     required="true">
+                            <f:validateLength minimum="2" maximum="30" />
+                        </h:inputText>
+                        <h:message for="brandname" style="color: red"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Product Name:</td>
+                    <td>
+                        <h:inputText label="ProductName"
+                                     id="prodname" value="#{PhoneBean.productName}"
+                                     required="true">
+                            <f:validateLength minimum="1" maximum="20" />
+                        </h:inputText>
+                        <h:message for="prodname" style="color: red"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Operating System:</td>
+                    <td>
+                        <h:inputText label="OS"
+                                     id="os" value="#{PhoneBean.os}"
+                                     required="true">
+                            <f:validateLength minimum="1" maximum="20" />
+                        </h:inputText>
+                        <h:message for="os" style="color: red"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Storage Capacity (GB):</td>
+                    <td>
+                        <h:inputText label="storage"
+                                     id="storage" value="#{PhoneBean.storageCapacity}"
+                                     required="true">
+                            <f:validateLongRange minimum="1" maximum="4096" />
+                        </h:inputText>
+                        <h:message for="storage" style="color: red"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Memory (GB):</td>
+                    <td>
+                        <h:inputText label="RAM"
+                                     id="ram" value="#{PhoneBean.ram}"
+                                     required="true">
+                            <f:validateLongRange minimum="1" maximum="128" />
+                        </h:inputText>
+                        <h:message for="ram" style="color: red"/>
+                    </td>
+                </tr>
+
+            </table>
+            <p><h:commandButton value="Submit" action="#{PhoneBean.save}" /></p>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

@@ -15,12 +15,58 @@ public class MobilePhoneBean implements Serializable{
     private String repoName = "Qenel Repo";
     Connection connection;
 
+    String brandName;
+    String productName;
+    String os;
+    int storageCapacity;
+    int ram;
+
     public String getRepoName() {
         return repoName;
     }
 
     public void setRepoName(String repoName) {
         this.repoName = repoName;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public void setOs(String os) {
+        this.os = os;
+    }
+
+    public int getStorageCapacity() {
+        return storageCapacity;
+    }
+
+    public void setStorageCapacity(int storageCapacity) {
+        this.storageCapacity = storageCapacity;
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public void setRam(int ram) {
+        this.ram = ram;
     }
 
     public static Connection getDataSourceConnection() throws SQLException {
@@ -67,4 +113,28 @@ public class MobilePhoneBean implements Serializable{
         return listOfPhones;
     }
 
+    public String save() {
+        int result = 0;
+        try {
+            connection = getDataSourceConnection();
+            PreparedStatement stmt = connection.prepareStatement(
+                    "INSERT INTO phones(brandName, productName, os, storageCapacity, ram) " +
+                            "VALUES(?,?,?,?,?)");
+
+            stmt.setString(1, brandName);
+            stmt.setString(2, productName);
+            stmt.setString(3, os);
+            stmt.setInt(4, storageCapacity);
+            stmt.setInt(5, ram);
+            result = stmt.executeUpdate();
+            connection.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        if (result != 0)
+            return "view.xhtml?faces-redirect=true";
+        else
+            return "create.xhtml?faces-redirect=true";
+    }
 }
