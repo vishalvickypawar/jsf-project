@@ -14,6 +14,20 @@
         <h:outputText value="#{PhoneRepo.repoName}"/>
     </h3>
     <h:form>
+        <center>
+            <h2>
+                <h:outputText value="What would you like to do?"/>
+            </h2>
+        </center>
+        <center>
+            <h:commandButton action="view.xhtml?faces-redirect=true"
+                             value="View Phones">
+            </h:commandButton>
+            <h:commandButton action="create.xhtml?faces-redirect=true"
+                             value="Create Records">
+            </h:commandButton>
+        </center>
+        <hr/>
         <h3>What would you like to check out?</h3>
         <hr/>
         <h4>About Qenel</h4>

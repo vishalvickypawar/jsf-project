@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Phones in Stock</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <center>
+            <h2><h:outputText value="Phone Records"/></h2>
+            <h:dataTable value="#{PhoneBean.phones}" var="u"
+                         styleClass = "myTable"
+                         headerClass = "myTableHeader"
+                         rowClasses = "myTableOddRow,myTableEvenRow">
+
+                <h:column>
+                    <f:facet name="header">Phone ID</f:facet>
+                    <h:outputText value="#{u.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Brand Name</f:facet>
+                    <h:outputText value="#{u.brandName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Product Name</f:facet>
+                    <h:outputText value="#{u.productName}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">OS</f:facet>
+                    <h:outputText value="#{u.os}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Storage Capacity (GB)</f:facet>
+                    <h:outputText value="#{u.storageCapacity}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Memory (GB)</f:facet>
+                    <h:outputText value="#{u.ram}"/>
+                </h:column>
+            </h:dataTable>
+        </center>
+
+    </h:form>
+</h:body>
+</html>
