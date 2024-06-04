@@ -193,4 +193,21 @@ public class MobilePhoneBean implements Serializable{
         }
         return "/view.xhtml?faces-redirect=true";
     }
+
+    public String delete(int id) {
+
+        System.out.println("Deleting phone with ID: " + id);
+
+        try {
+            connection = getDataSourceConnection();
+            Statement stmt = connection.createStatement();
+
+            stmt.executeUpdate("DELETE FROM phones WHERE id = " + id);
+            connection.close();
+        }
+        catch (Exception e) {
+            System.out.println();
+        }
+        return "/view.xhtml?faces-redirect=true";
+    }
 }
